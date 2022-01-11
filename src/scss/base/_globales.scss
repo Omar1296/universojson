@@ -1,0 +1,82 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5{
+    color: v.$blanco;
+    font-family: v.$unna;
+    text-transform: uppercase;
+}
+
+h1{
+    font-size: 15rem;
+
+    
+}
+
+h2{
+    font-size: 10rem;
+    @include m.escritorioXL{
+        font-size: 7.2rem;
+    }
+
+    @include m.tablet{
+        font-size: 4.2rem;
+    }
+}
+
+h3{
+    font-size: 5.6rem;
+}
+
+h4{
+    font-size: 3.2rem;
+}
+
+h5{
+    font-size: 2.8rem;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 0 auto;
+}
+
+img{
+    max-width: 100%;
+}
+
+a{
+    color: v.$blanco;
+    text-decoration: none;     
+}
+
+a, p{
+    color: v.$blanco;
+    font-family: v.$barlow;
+    font-size: 1.8rem;
+}
+
+.titulo-pag{
+    font-size: 2.8rem;
+    color: v.$blanco;
+    text-transform: uppercase;
+
+    @include m.telefono{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    
+    span{
+        font-weight: v.$bold;
+        color: v.$gris;
+    }
+}
+

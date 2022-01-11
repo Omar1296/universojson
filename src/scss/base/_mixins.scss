@@ -1,0 +1,111 @@
+@use 'variables' as v;
+
+@mixin telefono {
+    @media (max-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin escritorio {
+    @media (max-width: v.$desktop) {
+        @content;
+    }    
+}
+
+@mixin escritorioXL {
+    @media (max-width: v.$desktopXL) {
+        @content;
+    }    
+}
+
+@mixin escritorioXLL {
+    @media (min-width: v.$desktopXLL) {
+        @content;
+    }    
+}
+
+@mixin grid($columnas, $espaciado) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado;
+}
+
+@mixin bordeID {
+    position: relative;
+
+    &::before{
+        content: "";
+        width: 0%;
+        height: 3px;
+        background: v.$blanco;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transition: all .3s ease;
+    }
+    
+    &:hover:before{
+        width: 100%;
+           
+    }    
+}
+
+@mixin bordeDI {
+    position: relative;
+
+    &::before{
+        content: "";
+        width: 0%;
+        height: 3px;
+        background: v.$blanco;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transition: all .3s ease;
+    }
+    
+    &:hover:before{
+        width: 100%;
+           
+    }    
+}
+
+@mixin bordeC ($color) {
+    position: relative;
+
+    &::before{
+        content: "";
+        width: 0%;
+        height: 3px;
+        background: $color;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transition: all .3s ease;
+    }
+    
+    &:hover:before{
+        left: 0;
+        width: 100%;
+           
+    }
+}
+
+
+
+@mixin fondoHead {
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 4.4%;
+}
+
+

@@ -1,0 +1,187 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.webp{
+    .cont-tecnologia{
+        background-image: url('../img/technology/background-technology-desktop.webp');
+
+        @include m.tablet{
+            background-image: url('../img/technology/background-technology-tablet.webp');
+        }
+    }
+
+}
+
+.no-webp{
+    .cont-tecnologia{
+        background-image: url('../img/technology/background-technology-desktop.jpg');
+
+        @include m.tablet{
+            background-image: url('../img/technology/background-technology-tablet.jpg');
+        }
+     }
+}
+
+.relativo{
+    width: 100;
+    height: 100vh;
+    position: relative;
+
+    @include m.escritorio{
+        min-height: 100vh;
+        height: auto
+    }
+}
+
+.cont-tecnologia{
+    @include m.fondoHead();
+
+    @include m.escritorio{
+        min-height: 100vh;
+        height: auto
+    }
+}
+
+.tec-flex{
+    @include m.escritorio{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.imagen-tecnologia{
+    position: absolute;
+    right: 0;
+    top: 35%;
+
+    @include m.escritorioXL{
+        top: 30%;
+        height: 80%;
+        width: 38rem;
+    }
+
+    @include m.escritorio{
+        margin-top: 2.8rem;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+    }
+
+    .dispositivo{
+        display: none;
+        transition: all .3s ease;
+
+        
+
+        &.visual{
+            display: block;
+            object-fit: cover;
+        }
+    }
+}
+
+.info-tec{
+    margin-top: 6.4rem;
+    display: flex;
+
+    @include m.escritorio{
+        flex-direction: column;
+    }
+
+    .elecciones{
+        width: 20rem;
+        height: 36rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @include m.escritorio{
+            width: 100%;
+            height: auto;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2.4rem;
+        }
+
+        .elegir{
+            font-size: 2.4rem;
+            text-align: center;
+            line-height: 8rem;
+            display: inline-block;
+            color: v.$blanco;
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            border: 1px solid v.$gris;
+            transition: all .3s ease;
+            cursor: pointer;
+
+            @include m.escritorio{
+                margin-right: 2.4rem;
+
+                &:last-of-type{
+                    margin: 0;
+                }
+            }
+
+            &:hover{
+                background: v.$blancoT;
+                border: none;
+                color: v.$azul;
+            }
+
+            &.btn-activo{
+                background: v.$blanco;
+                border: none;
+                color: v.$azul;
+            }
+        }
+    }
+
+    .descripcion{
+        width: 50%;
+
+        @include m.escritorio{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .empezar{
+            font-size: 3.2rem;
+            color: v.$violeta;
+        }
+
+        h2{
+            margin: 2.4rem 0;
+        }
+
+        .copy{
+            width: 80%;
+            color: v.$violeta;
+            line-height: 1.6;
+            font-size: 1.8rem;
+
+            @include m.escritorio{
+                margin: 0 auto;
+                width: 80%;
+            }
+        }
+    }
+}
+
+.contInfo{
+    display: none;
+    opacity: 0;
+    transition: all .3s ease;
+
+    &.ver{
+        opacity: 1;
+        display: block;
+    }
+}
